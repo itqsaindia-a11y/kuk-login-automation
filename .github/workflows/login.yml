@@ -2,7 +2,8 @@ name: Auto Login
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "30 3 * * 1-6"
+    - cron: "30 15 * * 1-6"
 
 jobs:
   run-login:
