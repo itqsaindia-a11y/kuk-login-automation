@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "30 3 * * 1-6"
     - cron: "30 15 * * 1-6"
+  workflow_dispatch:  # Allow manual trigger for testing
 
 jobs:
   run-login:
@@ -21,8 +22,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Selenium
-        run: pip install selenium
+      - name: Install dependencies
+        run: |
+          pip install selenium
+          pip install webdriver-manager  # Helps manage ChromeDriver
 
-      - name: Run Script
+      - name: Run Login Script
         run: python login.py
